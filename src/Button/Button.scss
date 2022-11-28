@@ -1,0 +1,45 @@
+:root {
+	--btn-default-bg: #E0E0E0;
+	--btn-default-fg: #333;
+	--btn-default-bg-focus: #AEAEAE;
+
+	--btn-outline-fg: #3D5AFE;
+	--btn-outline-bg: #ffffff;
+	--btn-outline-bg-focus: hsla(224, 100%, 58%, 0.1)
+}
+
+.btn {
+	@apply px-5 py-3 rounded-md shadow text-sm font-medium;
+
+	border: 1px solid transparent;
+
+	&--default {
+		@apply text-gray-900;
+
+		background-color: var(--btn-default-bg);
+
+		&:hover,
+		&:focus {
+			background-color: var(--btn-default-bg-focus);
+		}
+	}
+
+	&--outline {
+		border-color: var(--btn-outline-fg);
+		color: var(--btn-outline-fg);
+
+		&:hover,
+		&:focus {
+			background-color: var(--btn-outline-bg-focus);
+		}
+	}
+
+	&--text {
+		color: var(--btn-outline-fg);
+
+		&:hover,
+		&:focus {
+			background-color: var(--btn-outline-bg-focus);
+		}
+	}
+}
