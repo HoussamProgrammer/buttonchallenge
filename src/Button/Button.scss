@@ -9,7 +9,7 @@
 }
 
 .btn {
-	@apply px-5 py-3 rounded-md shadow text-sm font-medium;
+	@apply px-5 py-3 rounded-md text-sm font-medium flex justify-center items-center gap-2;
 
 	border: 1px solid transparent;
 
@@ -41,5 +41,9 @@
 		&:focus {
 			background-color: var(--btn-outline-bg-focus);
 		}
+	}
+
+	&--shadow {
+		@apply shadow;
 	}
 }

@@ -1,18 +1,31 @@
 import React from 'react'
 import './Button.scss'
+import * as MdIcons from 'react-icons/md';
+
+const variantsClasses = {
+	'text': 'btn--text',
+	'outline': 'btn--outline'
+};
+
+const sizeClasses = {
+	'sm': 'btn--sm',
+	'md': 'btn--md',
+	'lg': 'btn--lg'
+};
 
 function Button({
-	variant,
-	disableShadow,
-	disabled,
+	variant = '',
+	disabledShadow,
+	disabled = false,
 	startIcon,
 	endIcon,
 	size,
-	color
+	color,
+	text = 'Default'
 }) {
-	const cssClasses = ''
-
-	const text = 'Default'
+	let cssClasses = 'btn'
+	let startIconVal;
+	let endIconVal;
 
 	/**
 	 * default
@@ -25,8 +38,38 @@ function Button({
 	 * color
 	 */
 
+	if (variant === '') {
+		cssClasses += ' btn--default'
+	} else {
+		try {
+			cssClasses += ` ${variantsClasses[variant]}`;
+		} catch (error) {
+			console.log(`🚫 unknown variant value #variant: ${variant}`);
+		}
+	}
+
+	if (!disabledShadow) { cssClasses += ' btn--shadow'; }
+	if (startIcon) {
+		try {
+			startIconVal = MdIcons[startIcon]();
+		} catch (error) {
+			console.log(`🚫 unknown argument #startIcon: ${startIcon}`);
+		}
+	}
+	if (endIcon) {
+		try {
+			endIconVal = MdIcons[endIcon]();
+		} catch (error) {
+			console.log(`🚫 unknown argument #endIcon: ${endIcon}`);
+		}
+	}
+
 	return (
-		<button className='btn btn--text'>{text}</button>
+		<button className={cssClasses} disabled={disabled}>
+			{startIcon ? startIconVal : ''}
+			{text}
+			{endIcon ? endIconVal : ''}
+		</button>
 	)
 }
 

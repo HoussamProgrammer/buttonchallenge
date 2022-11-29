@@ -6,7 +6,7 @@ function App() {
 	return (
 		<>
 			<div className='bg-white min-h-[50vh] flex justify-center items-center m-4'>
-				<Button></Button>
+				<Button variant='text' startIcon='MdShoppingCart' disabled></Button>
 			</div>
 		</>
 	);
